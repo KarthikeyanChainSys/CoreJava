@@ -15,8 +15,8 @@ public class Writeobj
     try
     {
         fos=new FileOutputStream ("d:\\temp\\emp1.dat") ;
-        oos=    new ObjectOutputStream(fos) ;
-         scanner=new java.util.Scanner(System.in);
+        oos=new ObjectOutputStream(fos) ;
+        scanner=new java.util.Scanner(System.in);
         System.out.println("Enter Emp ID");
         String sid=scanner.nextLine();
         System.out.println("Enter EmpName");

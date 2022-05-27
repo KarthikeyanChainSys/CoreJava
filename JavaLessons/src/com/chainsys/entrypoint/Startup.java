@@ -1,6 +1,8 @@
 package com.chainsys.entrypoint;
 
-import com.chainsys.exceptions.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /***
  * @author karthi251199
  * @version 1.0
@@ -16,7 +18,7 @@ public class Startup {
 	 */
 	  public static void main(String[] args) {
 		  //DemoA.taskA();
-		  DemoTrace.m1();
+//		  DemoTrace.m1();
 		  
 		  
 		  /* Calculator calculator = null;
@@ -36,5 +38,18 @@ finally {
 }
 System.out.println("After Try- catch-finally");
 }*/
+		  checkJobId("IT_PROG");
+		  
+		  
   }
+	  public static void checkJobId(String data) throws InvalidInputDataException{
+			boolean result=false;
+			String pattern="^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
+			Pattern patt=Pattern.compile(pattern);
+			Matcher match = patt.matcher(data);
+			result=match.matches();
+			if(!result) throw new InvalidInputDataException("wrong pattern for job id");
+			else 
+				System.out.println(data);
+		}
 }
